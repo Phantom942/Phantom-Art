@@ -160,12 +160,24 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-family: var(--font-serif);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 400;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.12em;
   line-height: 1.2;
-  margin: 0 0 24px;
+  margin: 0 0 12px;
   opacity: 0;
   transform: translateY(30px);
-  animation: heroTitleIn 1s var(--ease-out) 0.3s forwards;
+  animation: heroTitleIn 1s var(--ease-out) 0.2s forwards;
+}
+.hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroTitleIn 1s var(--ease-out) 0.35s forwards;
 }
 .hero-quote {
   font-family: var(--font-serif);
@@ -179,7 +191,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: rgba(255,255,255,0.9);
   opacity: 0;
   transform: translateY(20px);
-  animation: heroTitleIn 1s var(--ease-out) 0.5s forwards;
+  animation: heroTitleIn 1s var(--ease-out) 0.45s forwards;
 }
 @keyframes heroTitleIn {
   to { opacity: 1; transform: translateY(0); }
@@ -193,7 +205,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-transform: uppercase;
   opacity: 0;
   transform: translateY(20px);
-  animation: heroTitleIn 0.8s var(--ease-out) 0.6s forwards;
+  animation: heroTitleIn 0.8s var(--ease-out) 0.7s forwards;
   transition: background 0.3s, color 0.3s;
 }
 .hero-cta:hover {
@@ -384,6 +396,52 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .service-content .btn { margin-top: 0; }
 
+/* ----- Partenariats ----- */
+.section-partenariats {
+  padding: 168px 24px;
+  background: var(--bg);
+}
+.partenariats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.partenariat-logo {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 120px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.partenariat-logo img {
+  display: block;
+  max-width: 85%;
+  max-height: 75%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(0.2);
+  opacity: 0.8;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.partenariat-logo:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
 /* ----- Engagement / Valeurs ----- */
 .section-valeurs {
   padding: 192px 24px;
@@ -487,18 +545,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-top: 1px solid var(--border);
   position: relative;
 }
-.footer-arrows {
-  margin-bottom: 24px;
-}
-.footer-arrows-text {
-  font-size: 24px;
-  opacity: 0.6;
-}
-.footer-logo {
+.footer-brand {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  display: inline-block;
-  margin-bottom: 24px;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 20px;
 }
 .footer-contact-line {
   font-family: var(--font-serif);
@@ -688,6 +740,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ----- Responsive ----- */
 @media (max-width: 600px) {
   .section { padding: 96px 20px; }
+  .section-partenariats { padding: 96px 24px; }
+  .partenariats-grid { gap: 30px; }
+  .partenariat-logo { width: 180px; height: 100px; }
   .hero-title { font-size: 1.75rem; }
   .cookie-banner { flex-direction: column; text-align: center; }
 }
