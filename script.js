@@ -17,17 +17,23 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
   if (menuToggle && nav) {
+    function closeMenu() {
+      nav.classList.remove('open');
+      menuToggle.classList.remove('open');
+      document.body.style.overflow = '';
+    }
     menuToggle.addEventListener('click', function () {
       nav.classList.toggle('open');
       menuToggle.classList.toggle('open');
       document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
     });
     document.querySelectorAll('.nav a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.remove('open');
-        menuToggle.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('open')) return;
+      if (nav.contains(e.target) || menuToggle.contains(e.target)) return;
+      closeMenu();
     });
   }
 
