@@ -402,12 +402,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--bg);
 }
 .partenariats-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 220px);
+  gap: 30px;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  max-width: 1100px;
   margin: 0 auto;
 }
 .partenariat-logo {
@@ -634,6 +633,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .service-block-reverse .service-gallery { order: 1; }
   .service-block-reverse .service-content { order: 2; }
   .service-content { padding: 0 !important; }
+  .partenariats-grid { grid-template-columns: repeat(2, 220px); }
 }
 
 /* ----- Cookie banner ----- */
@@ -741,8 +741,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 600px) {
   .section { padding: 96px 20px; }
   .section-partenariats { padding: 96px 24px; }
-  .partenariats-grid { gap: 30px; }
-  .partenariat-logo { width: 180px; height: 100px; }
+  .partenariats-grid { grid-template-columns: repeat(2, 160px); gap: 20px; justify-content: center; }
+  .partenariat-logo { width: 160px; height: 90px; padding: 12px; }
   .hero-title { font-size: 1.75rem; }
   .cookie-banner { flex-direction: column; text-align: center; }
+}
+@media (max-width: 400px) {
+  .partenariats-grid { grid-template-columns: 1fr; max-width: 220px; }
 }
